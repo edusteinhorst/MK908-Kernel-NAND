@@ -29,6 +29,8 @@ enum {
 #define AUDIO_CTRL1			0x28
 #define AUDIO_CTRL2 		0x2c
 #define I2S_AUDIO_CTRL		0x30
+#define AUDIO_STA_BIT_CTRL2    0X48
+
 enum {
 	I2S_MODE_STANDARD = 0,
 	I2S_MODE_RIGHT_JUSTIFIED,
@@ -438,7 +440,8 @@ enum {
 	CSC_ITU601_16_235_TO_RGB_16_235,	//YCbCr 16-235 input to RGB 16-235 output according BT601
 	CSC_ITU709_16_235_TO_RGB_16_235,	//YCbCr 16-235 input to RGB 16-235 output according BT709
 	CSC_ITU601_16_235_TO_RGB_0_255,		//YCbCr 16-235 input to RGB 0-255 output according BT601
-	CSC_ITU709_16_235_TO_RGB_0_255		//YCbCr 16-235 input to RGB 0-255 output according BT709
+	CSC_ITU709_16_235_TO_RGB_0_255,		//YCbCr 16-235 input to RGB 0-255 output according BT709
+	CSC_RGB_0_255_TO_RGB_16_235			//RGB 0-255 input to RGB 16-235 output
 };
 
 extern int rk30_hdmi_enable(struct hdmi *hdmi);

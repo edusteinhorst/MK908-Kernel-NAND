@@ -110,7 +110,8 @@ enum {
 
 // HDMI Video Data Color Mode
 enum hdmi_video_color_mode {
-	HDMI_COLOR_RGB = 0,
+	HDMI_COLOR_RGB_0_255 = 0,
+	HDMI_COLOR_RGB_16_235,
 	HDMI_COLOR_YCbCr444,
 	HDMI_COLOR_YCbCr422,
 };
@@ -127,6 +128,7 @@ enum hdmi_deep_color {
 
 // HDMI Audio Type
 enum hdmi_audio_type {
+	HDMI_AUDIO_NLPCM = 0,
 	HDMI_AUDIO_LPCM = 1,
 	HDMI_AUDIO_AC3,
 	HDMI_AUDIO_MPEG1,
@@ -306,11 +308,11 @@ struct hdmi {
 #define HDMI_SET_AUDIO			(HDMI_SYSFS_SRC		| 6)
 #define HDMI_SET_3D				(HDMI_SYSFS_SRC		| 7)
 
-#define HDMI_DEFAULT_SCALE		100 // Galland
+#define HDMI_DEFAULT_SCALE		95
 #define HDMI_AUTO_CONFIG		true
 
 // HDMI default vide mode
-#define HDMI_VIDEO_DEFAULT_MODE			HDMI_1920x1080p_60HZ  // HDMI_1280x720p_60HZ
+#define HDMI_VIDEO_DEFAULT_MODE			HDMI_1280x720p_60HZ//HDMI_1920x1080p_60HZ
 
 // HDMI default audio parameter
 #define HDMI_AUDIO_DEFAULT_TYPE 		HDMI_AUDIO_LPCM
@@ -341,6 +343,7 @@ extern int hdmi_ouputmode_select(struct hdmi *hdmi, int edid_ok);
 extern int hdmi_add_vic(int vic, struct list_head *head);
 extern int hdmi_videomode_to_vic(struct fb_videomode *vmode);
 extern const struct fb_videomode* hdmi_vic_to_videomode(int vic);
+extern const struct hdmi_video_timing* hdmi_vic2timing(int vic);
 extern int hdmi_config_audio(struct hdmi_audio	*audio);
 
 #endif

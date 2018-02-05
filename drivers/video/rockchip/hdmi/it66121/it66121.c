@@ -45,8 +45,10 @@ static irqreturn_t it66121_detect_irq(int irq, void *dev_id)
 
 static int it66121_enable(struct hdmi *hdmi)
 {
-	it66121->enable = 1;
-	queue_delayed_work(it66121->workqueue, &it66121->delay_work, msecs_to_jiffies(50));
+	if(!it66121->enable) {
+		it66121->enable = 1;
+		queue_delayed_work(it66121->workqueue, &it66121->delay_work, msecs_to_jiffies(50));
+	}
 	return 0;
 }
 

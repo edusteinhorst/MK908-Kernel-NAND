@@ -290,8 +290,10 @@ deps_config := \
 	drivers/video/rockchip/lvds/Kconfig \
 	drivers/video/rockchip/rga/Kconfig \
 	drivers/video/rockchip/hdmi/softcec/Kconfig \
+	drivers/video/rockchip/hdmi/rk616/Kconfig \
 	drivers/video/rockchip/hdmi/it66121/Kconfig \
 	drivers/video/rockchip/hdmi/sii902xa/Kconfig \
+	drivers/video/rockchip/hdmi/rk3028a/Kconfig \
 	drivers/video/rockchip/hdmi/rk2928/Kconfig \
 	drivers/video/rockchip/hdmi/rk30/hdcp/Kconfig \
 	drivers/video/rockchip/hdmi/rk30/Kconfig \
